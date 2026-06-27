@@ -1,7 +1,7 @@
 import socket, threading, time, os
 import mysql.connector
 
-USER = "Syahmi"
+USER = "Node-Syahmi"
 PORT = 5002
 TAG  = f"[Py-Srv:{USER}]"
 
