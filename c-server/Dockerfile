@@ -8,8 +8,9 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-COPY server1.c ./
+COPY server1.c server2.c ./
 
-RUN gcc -o server1 server1.c $(mysql_config --cflags --libs) -Wall
+RUN gcc -o server1 server1.c $(mysql_config --cflags --libs) -Wall && \
+    gcc -o server2 server2.c $(mysql_config --cflags --libs) -Wall
 
 CMD ["./server1"]
