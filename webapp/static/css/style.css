@@ -33,3 +33,5 @@ tbody td { padding: 16px 22px; vertical-align: middle; }
 .points-cell { font-size: 1.3rem; font-weight: 700; color: var(--green); }
 .time-cell  { font-size: 0.8rem; color: var(--muted); }
 footer { text-align: center; color: var(--muted); font-size: 0.78rem; line-height: 1.8; }
+
+.chart-container { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 32px; height: 300px; }
