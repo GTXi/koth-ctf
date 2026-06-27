@@ -104,29 +104,29 @@ services:
       - koth_net
     depends_on:
       - py-server3
-      
+
   c-server1:
-      build: ./c-server
-      command: ["./server1"]
-      container_name: koth_c_srv1
-      environment:
-        DB_HOST: koth_db
-        DB_USER: koth_user
-        DB_PASS: koth_pass
-        DB_NAME: koth
-      networks:
-        - koth_net
-      depends_on:
-        db:
-          condition: service_healthy
-  
-    c-client1:
-      build: ./c-client
-      command: ["./client1"]
-      container_name: koth_c_cli1
-      environment:
-        SERVER_HOST: koth_c_srv1
-      networks:
-        - koth_net
-      depends_on:
-        - c-server1
+    build: ./c-server
+    command: ["./server1"]
+    container_name: koth_c_srv1
+    environment:
+      DB_HOST: koth_db
+      DB_USER: koth_user
+      DB_PASS: koth_pass
+      DB_NAME: koth
+    networks:
+      - koth_net
+    depends_on:
+      db:
+        condition: service_healthy
+
+  c-client1:
+    build: ./c-client
+    command: ["./client1"]
+    container_name: koth_c_cli1
+    environment:
+      SERVER_HOST: koth_c_srv1
+    networks:
+      - koth_net
+    depends_on:
+      - c-server1
