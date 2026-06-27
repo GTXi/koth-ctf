@@ -9,7 +9,7 @@
 #include <netinet/in.h>
 #include <mysql/mysql.h>
 
-#define USER    "Faiz"
+#define USER    "Node-Faiz"
 #define PORT    5005
 #define BUFSIZE 1024
 #define TAG     "[C-Srv:Faiz]"
@@ -74,7 +74,7 @@ static void serve_client(int fd) {
         MYSQL_ROW  row = mysql_fetch_row(res);
         if (row)
             snprintf(msg, BUFSIZE,
-                "User: %s | Points: %s | Last Update: %s",
+                "Node: %s | Blocks: %s | Last Hash: %s",
                 row[0], row[1], row[2]);
         else
             snprintf(msg, BUFSIZE, "No data.");
