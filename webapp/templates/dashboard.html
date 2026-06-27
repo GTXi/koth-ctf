@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KotH — Live Scoreboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="crown">👑</div>
+            <h1>King of the Hill</h1>
+            <p class="subtitle">ITT440 Network Programming — Live Scoring Dashboard</p>
+            <div class="refresh-badge">
+                Auto-refresh in <span id="countdown">10</span>s
+            </div>
+        </header>
+        <div class="scoreboard">
+            <table id="scores-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>User</th>
+                        <th>Points</th>
+                        <th>Last Update</th>
+                    </tr>
+                </thead>
+                <tbody id="scores-body">
+                    {% for score in scores %}
+                    <tr class="rank-{{ loop.index }}">
+                        <td class="rank-cell">
+                            {% if loop.index == 1 %}🥇
+                            {% elif loop.index == 2 %}🥈
+                            {% elif loop.index == 3 %}🥉
+                            {% else %}{{ loop.index }}
+                            {% endif %}
+                        </td>
+                        <td class="user-cell">{{ score.user }}</td>
+                        <td class="points-cell">{{ score.points }}</td>
+                        <td class="time-cell">{{ score.datetime_stamp }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <footer>
+            <p>Scores update every 30 seconds &nbsp;·&nbsp; Dashboard refreshes every 10 seconds</p>
+            <p class="port-info">
+                Py-Srv: :5001 :5002 :5003 &nbsp;|&nbsp; C-Srv: :5004 :5005 &nbsp;|&nbsp; API: /api/scores
+            </p>
+        </footer>
+    </div>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
