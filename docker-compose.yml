@@ -156,3 +156,19 @@ services:
       - koth_net
     depends_on:
       - c-server2
+  
+  webapp:
+    build: ./webapp
+    container_name: koth_webapp
+    environment:
+      DB_HOST: koth_db
+      DB_USER: koth_user
+      DB_PASS: koth_pass
+      DB_NAME: koth
+    ports:
+      - "8080:8080"
+    networks:
+      - koth_net
+    depends_on:
+      db:
+        condition: service_healthy
