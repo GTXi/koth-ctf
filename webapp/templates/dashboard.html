@@ -16,6 +16,11 @@
                 Auto-refresh in <span id="countdown">10</span>s
             </div>
         </header>
+
+        <div class="chart-container">
+            <canvas id="scoreChart"></canvas>
+        </div>
+
         <div class="scoreboard">
             <table id="scores-table">
                 <thead>
@@ -27,20 +32,7 @@
                     </tr>
                 </thead>
                 <tbody id="scores-body">
-                    {% for score in scores %}
-                    <tr class="rank-{{ loop.index }}">
-                        <td class="rank-cell">
-                            {% if loop.index == 1 %}🥇
-                            {% elif loop.index == 2 %}🥈
-                            {% elif loop.index == 3 %}🥉
-                            {% else %}{{ loop.index }}
-                            {% endif %}
-                        </td>
-                        <td class="user-cell">{{ score.user }}</td>
-                        <td class="points-cell">{{ score.points }}</td>
-                        <td class="time-cell">{{ score.datetime_stamp }}</td>
-                    </tr>
-                    {% endfor %}
+                    <!-- JavaScript will populate this -->
                 </tbody>
             </table>
         </div>
@@ -51,6 +43,9 @@
             </p>
         </footer>
     </div>
+    
+    <!-- Injecting the Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/static/js/dashboard.js"></script>
 </body>
 </html>
