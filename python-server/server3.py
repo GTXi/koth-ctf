@@ -43,7 +43,7 @@ def handle_client(conn, addr):
         )
         row = cur.fetchone()
         cur.close(); db.close()
-        msg = (f"User: {row[0]} | Points: {row[1]} | Last Update: {row[2]}"
+        msg = (f"User: {row[0]} | Points: {row[1]} | Last Hash: {row[2]}"
                if row else "No data.")
         conn.sendall(msg.encode())
     except Exception as e:
