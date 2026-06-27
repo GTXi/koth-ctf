@@ -131,7 +131,7 @@ services:
     depends_on:
       - c-server1
 
-c-server2:
+  c-server2:
     build: ./c-server
     command: ["./server2"]
     container_name: koth_c_srv2
