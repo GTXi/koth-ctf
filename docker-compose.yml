@@ -39,6 +39,36 @@ services:
       db:
         condition: service_healthy
 
+  py-server2:
+    build: ./python-server
+    command: ["python", "server2.py"]
+    container_name: koth_py_srv2
+    environment:
+      DB_HOST: koth_db
+      DB_USER: koth_user
+      DB_PASS: koth_pass
+      DB_NAME: koth
+    networks:
+      - koth_net
+    depends_on:
+      db:
+        condition: service_healthy
+
+  py-server3:
+    build: ./python-server
+    command: ["python", "server3.py"]
+    container_name: koth_py_srv3
+    environment:
+      DB_HOST: koth_db
+      DB_USER: koth_user
+      DB_PASS: koth_pass
+      DB_NAME: koth
+    networks:
+      - koth_net
+    depends_on:
+      db:
+        condition: service_healthy
+
   py-client1:
     build: ./python-client
     command: ["python", "client1.py"]
@@ -50,3 +80,27 @@ services:
       - koth_net
     depends_on:
       - py-server1
+
+  py-client2:
+    build: ./python-client
+    command: ["python", "client2.py"]
+    container_name: koth_py_cli2
+    environment:
+      SERVER_HOST: koth_py_srv2
+      SERVER_PORT: "5002"
+    networks:
+      - koth_net
+    depends_on:
+      - py-server2
+
+  py-client3:
+    build: ./python-client
+    command: ["python", "client3.py"]
+    container_name: koth_py_cli3
+    environment:
+      SERVER_HOST: koth_py_srv3
+      SERVER_PORT: "5003"
+    networks:
+      - koth_net
+    depends_on:
+      - py-server3
