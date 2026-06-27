@@ -2,7 +2,7 @@ import socket, threading, time, os
 import mysql.connector
 
 # ── CONFIG ──────────────────
-USER = "Afif"
+USER = "Node-Afif"
 PORT = 5001
 TAG  = f"[Py-Srv:{USER}]"
 # ────────────────────────────
