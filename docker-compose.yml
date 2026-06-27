@@ -119,6 +119,11 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
 
   c-client1:
     build: ./c-client
@@ -145,6 +150,11 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
 
   c-client2:
     build: ./c-client
@@ -156,7 +166,7 @@ services:
       - koth_net
     depends_on:
       - c-server2
-  
+
   webapp:
     build: ./webapp
     container_name: koth_webapp
