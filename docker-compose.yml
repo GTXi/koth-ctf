@@ -38,3 +38,15 @@ services:
     depends_on:
       db:
         condition: service_healthy
+
+  py-client1:
+    build: ./python-client
+    command: ["python", "client1.py"]
+    container_name: koth_py_cli1
+    environment:
+      SERVER_HOST: koth_py_srv1
+      SERVER_PORT: "5001"
+    networks:
+      - koth_net
+    depends_on:
+      - py-server1
