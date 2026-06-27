@@ -1,0 +1,25 @@
+version: "3.8"
+
+networks:
+  koth_net:
+    driver: bridge
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: koth_db
+    environment:
+      MYSQL_ROOT_PASSWORD: koth_root
+      MYSQL_DATABASE: koth
+      MYSQL_USER: koth_user
+      MYSQL_PASSWORD: koth_pass
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - koth_net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ukoth_user", "-pkoth_pass"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
