@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS koth_standings (
                    ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO koth_standings (user, points) VALUES ('Afif',    0);
-INSERT INTO koth_standings (user, points) VALUES ('Syahmi',  0);
-INSERT INTO koth_standings (user, points) VALUES ('Irfan',   0);
-INSERT INTO koth_standings (user, points) VALUES ('Hairiel', 0);
-INSERT INTO koth_standings (user, points) VALUES ('Faiz',    0);
+INSERT INTO koth_standings (user, points) VALUES ('Node-Afif',    0);
+INSERT INTO koth_standings (user, points) VALUES ('Node-Syahmi',  0);
+INSERT INTO koth_standings (user, points) VALUES ('Node-Irfan',   0);
+INSERT INTO koth_standings (user, points) VALUES ('Node-Hairiel', 0);
+INSERT INTO koth_standings (user, points) VALUES ('Node-Faiz',    0);
