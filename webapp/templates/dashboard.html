@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KotH — Live Scoreboard</title>
+    <title>Crypto Node — Live Telemetry</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="crown">👑</div>
-            <h1>King of the Hill</h1>
-            <p class="subtitle">ITT440 Network Programming — Live Scoring Dashboard</p>
+            <div class="crown">🪙</div>
+            <h1>Mining Farm Validator</h1>
+            <p class="subtitle">ITT440 Network Programming — Live Node Telemetry</p>
             <div class="refresh-badge">
                 Auto-refresh in <span id="countdown">10</span>s
             </div>
@@ -21,9 +21,9 @@
                 <thead>
                     <tr>
                         <th>Rank</th>
-                        <th>User</th>
-                        <th>Points</th>
-                        <th>Last Update</th>
+                        <th>Validator Node</th>
+                        <th>Blocks Mined</th>
+                        <th>Last Hash Time</th>
                     </tr>
                 </thead>
                 <tbody id="scores-body">
@@ -45,9 +45,9 @@
             </table>
         </div>
         <footer>
-            <p>Scores update every 30 seconds &nbsp;·&nbsp; Dashboard refreshes every 10 seconds</p>
+            <p>Block rewards validated every 30 seconds &nbsp;·&nbsp; Dashboard refreshes every 10 seconds</p>
             <p class="port-info">
-                Py-Srv: :5001 :5002 :5003 &nbsp;|&nbsp; C-Srv: :5004 :5005 &nbsp;|&nbsp; API: /api/scores
+                GPU Rigs (Py): :5001 :5002 :5003 &nbsp;|&nbsp; ASIC Miners (C): :5004 :5005
             </p>
         </footer>
     </div>
